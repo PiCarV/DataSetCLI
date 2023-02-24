@@ -278,6 +278,15 @@ func main() {
         }
     }
 
+    fmt.Println("Finished copying jpgs to train and test directories")
+
+    // close the input csv
+    csvFile.Close()
+
+    // close the output csv
+    trainCsv.Close()
+    testCsv.Close()
+    
 
 
 
