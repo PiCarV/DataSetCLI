@@ -195,10 +195,6 @@ func main() {
     bufioWriter := bufio.NewWriter(trainCsv)
     var outputCount = 0
     for inputScanner.Scan() {
-        if outputCount == trainLineCount {
-            fmt.Println("Train line count reached at" , outputCount)
-            break
-        }
         _, err = bufioWriter.WriteString(inputScanner.Text())
         if err != nil {
             fmt.Println("Error writing to train csv")
@@ -212,6 +208,10 @@ func main() {
             return
         }
         outputCount++
+        if outputCount == trainLineCount {
+            fmt.Println("Train line count reached at" , outputCount)
+            break
+        }
     }
 
 
@@ -228,10 +228,6 @@ func main() {
     fmt.Println("Copying test lines to test csv...")
     outputCount = 0
     for inputScanner.Scan() {
-        if outputCount == testLineCount {
-            fmt.Println("Test line count reached at" , outputCount)
-            break
-        }
         _, err = bufioWriter.WriteString(inputScanner.Text())
         if err != nil {
             fmt.Println("Error writing to test csv")
@@ -245,6 +241,10 @@ func main() {
             return
         }
         outputCount++
+        if outputCount == testLineCount {
+            fmt.Println("Test line count reached at" , outputCount)
+            break
+        }
     }
 
 
